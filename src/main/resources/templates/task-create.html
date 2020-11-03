@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create task</title>
+</head>
+<body>
+<form action="#" th:action="@{/task-create}" th:object="${task}" method="post">
+    <label for="project">Project</label>
+    <input type="text" th:field="*{project}" id="project" placeholder="Project">
+    <label for="summary">Summary</label>
+    <input type="text" th:field="*{summary}" id="summary" placeholder="Summary">
+    <label for="description">Description</label>
+    <input type="text" th:field="*{description}" id="description" placeholder="Description">
+    <label for="assign">Assign</label>
+    <input type="text" th:field="*{assign}" id="assign" placeholder="Assign">
+    <input type="submit" value="Create Task">
+</form>
+</body>
+</html>

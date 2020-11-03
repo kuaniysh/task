@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+<body>
+<div th:switch="${tasks}">
+    <h2 th:case="null">No tasks found!</h2>
+    <div th:case="*">
+        <h2>Tasks</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Project</th>
+                <th>Summary</th>
+                <th>Description</th>
+                <th>Assign</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.id}"></td>
+                <td th:text="${task.project}"></td>
+                <td th:text="${task.summary}"></td>
+                <td th:text="${task.description}"></td>
+                <td th:text="${task.assign}"></td>
+                <td><a th:href="@{task-update/{id}(id=${task.id})}">Edit</a></td>
+                <td><a th:href="@{task-delete/{id}(id=${task.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/task-create">Create task</a></p>
+</div>
+</body>
+</html>
